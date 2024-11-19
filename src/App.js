@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
-import MainContent from './components/MainContent';
-import Footer from './components/Footer';
-import Modal from './components/Modal';
+import Header from './components/Header.js';
+import MainContent from './components/MainContent.js';
+import Footer from './components/Footer.js';
+import Modal from './components/Modal.js';
 import './App.css';
 
 function App() {
