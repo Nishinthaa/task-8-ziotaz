@@ -1,0 +1,237 @@
+ /* General Reset */
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  color: #333;
+}
+
+/* Header with Horizontal Navigation */
+.header {
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header h1 {
+  font-size: 24px;
+  z-index: 1;
+  white-space: nowrap; /* Prevents header text from breaking into two lines */
+}
+
+/* Navigation */
+.nav-horizontal ul {
+  display: flex;
+  list-style-type: none;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center; /* Ensures items are centered on smaller screens */
+}
+
+.nav-horizontal li {
+  position: relative; /* Allows dropdown positioning relative to parent */
+}
+
+.nav-horizontal a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: background-color 0.3s;
+}
+
+.nav-horizontal a:hover {
+  background-color: #444;
+  border-radius: 5px;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  list-style-type: none;
+  padding: 10px;
+  margin-top:8px;
+  top: 100%;
+  left: 0;
+  z-index: 2;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  margin: 5px 0;
+}
+
+.dropdown-menu li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 5px 10px;
+  border-radius:3px;
+}
+
+.dropdown-menu li a:hover {
+  background-color: dodgerblue;
+}
+
+/* Main Content */
+.main-content {
+  padding: 40px;
+}
+
+/* Keyframe Animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.main-content section {
+  margin-bottom: 40px;
+  padding: 20px;
+  animation: fadeIn 2s ease-in;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  border-radius: 8px;
+  color: white;
+}
+
+/* Projects Grid Layout */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 0 20px; /* Adds padding to prevent content from touching screen edges */
+}
+
+.project {
+  background-color: #eee;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.project:hover {
+  background-color: #ddd;
+  transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+}
+
+/* Modal Styling */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 3; /* Ensure it appears above other content */
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  margin: 10% auto;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Media Queries */
+
+/* Large screens (desktops) */
+@media (min-width: 1024px) {
+  .header h1 {
+      font-size: 32px;
+  }
+
+  .nav-horizontal ul {
+      gap: 20px;
+  }
+
+  .projects-grid {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  .main-content {
+      padding: 20px;
+  }
+
+  .header h1 {
+      font-size: 28px;
+  }
+}
+
+/* Small screens (mobile phones) */
+@media (max-width: 767px) {
+  .header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .nav-horizontal ul {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .projects-grid {
+      grid-template-columns: 1fr;
+  }
+
+  .header h1 {
+      font-size: 24px;
+  }
+
+  .main-content {
+      padding: 15px;
+  }
+}
